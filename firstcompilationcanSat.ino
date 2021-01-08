@@ -1,0 +1,22 @@
+#include<Wire.h>
+#include<Adafruit_BMP280.h>
+Adafruit_BMP280 bmp;  //I2C
+float pressure;
+void setup() {
+  Serial.begin(115200);
+  Serial.println(F("BMP280 test"));
+
+}
+
+void loop() {
+    Serial.print("xx"); //team ID
+    Serial.print("S1") ;     //science payload 1
+    Serial.print(F("Temperature = "));
+    Serial.print(bmp.readTemperature(),1);
+    Serial.println(" *C");
+    pressure = bmp.readPressure(); //reading pressure
+    Serial.print(F("Approx altitude = "));
+    Serial.print(bmp.readAltitude(1013.25),1); /* Adjusted to local forecast! */
+    Serial.println(" m");
+
+}
