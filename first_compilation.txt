@@ -2,7 +2,6 @@
 #include<Adafruit_BMP280.h>
 Adafruit_BMP280 bmp;  //I2C
 float pressure;
-long 
 void setup() {
   Serial.begin(115200);
   Serial.println(F("BMP280 test"));
