@@ -14,15 +14,7 @@ void setup() {
 }
 
 void loop() {
-    Serial.print("xx"); //team ID
-    Serial.print("S1") ;     //science payload 1
-    Serial.print(F("Temperature = "));
-    Serial.print(bmp.readTemperature(),1);
-    Serial.println(" *C");
-    pressure = bmp.readPressure(); //reading pressure
-    Serial.print(F("Approx altitude = "));
-    Serial.print(bmp.readAltitude(1013.25),1); /* Adjusted to local forecast! */
-    Serial.println(" m");
+    BMPMeasurement();
     recordGyroRegisters();//RPM Measurement
     RPMMeasurement();
     delay(100);
@@ -84,4 +76,16 @@ void RPMMeasurement() {
   Serial.print(rpmY);
   Serial.print(" Z=");
   Serial.print(rpmZ);
+}
+void BMPMeasurement()
+{
+Serial.print("xx"); //team ID
+    Serial.print("S1") ;     //science payload 1
+    Serial.print(F("Temperature = "));
+    Serial.print(bmp.readTemperature(),1);
+    Serial.println(" *C");
+    pressure = bmp.readPressure(); //reading pressure
+    Serial.print(F("Approx altitude = "));
+    Serial.print(bmp.readAltitude(1013.25),1); /* Adjusted to local forecast! */
+    Serial.println(" m");
 }
