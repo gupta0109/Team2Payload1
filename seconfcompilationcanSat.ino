@@ -5,6 +5,7 @@ float pressure;
 long gyroX, gyroY, gyroZ;
 float rotX, rotY, rotZ;
 float rpmX,rpmY,rpmZ;
+int packet_count=0;
 void setup() {
   Serial.begin(115200);
   bmp1();
@@ -14,6 +15,7 @@ void setup() {
 }
 
 void loop() {
+    missiondata();
     BMPMeasurement();
     delay(11560);
     recordGyroRegisters();//RPM Measurement
@@ -80,7 +82,6 @@ void RPMMeasurement() {
 }
 void BMPMeasurement()
 {
-Serial.print("xx"); //team ID
     Serial.print("S1") ;     //science payload 1
     Serial.print(F("Temperature = "));
     Serial.print(bmp.readTemperature(),1);
@@ -89,4 +90,14 @@ Serial.print("xx"); //team ID
     Serial.print(F("Approx altitude = "));
     Serial.print(bmp.readAltitude(1013.25),1); /* Adjusted to local forecast! */
     Serial.println(" m");
+}
+void missiondata()
+{
+  Serial.print("0000");//Team ID
+  Serial.print(",");
+  Serial.print(" ");//Mission Time
+  Serial.print(",")
+  packet_count++;
+  Serial.print("packet_count");
+  Serial.print(",");
 }
