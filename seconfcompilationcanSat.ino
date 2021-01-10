@@ -15,9 +15,10 @@ void setup() {
 
 void loop() {
     BMPMeasurement();
+    delay(11560);
     recordGyroRegisters();//RPM Measurement
     RPMMeasurement();
-    delay(100);
+    delay(11560);
 
 }
 
