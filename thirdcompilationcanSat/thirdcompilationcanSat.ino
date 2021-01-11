@@ -78,13 +78,18 @@ void processGyroData() {
   rpmZ=rotZ/6;
 }
 void RPMMeasurement() {
-  Serial.print("Gyro (RPM)");
   Serial.print(" X=");
-  Serial.print(rpmX);
+  String x1;
+  x1=String(rpmX);
+  Serial.println(x1);
   Serial.print(" Y=");
-  Serial.print(rpmY);
+  String x2;
+  x2=String(rpmY);
+  Serial.println(x2);
   Serial.print(" Z=");
-  Serial.print(rpmZ);
+  String x3;
+  x3=String(rpmZ);
+  Serial.println(x3);
 }
 void BMPMeasurement()
 {
