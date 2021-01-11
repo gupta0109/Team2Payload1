@@ -101,7 +101,7 @@ void missiondata()
   Serial.print("0000");//Team ID
   Serial.print(",");
   Serial.print(" ");//Mission Time
-  Serial.print(",")
+  Serial.print(",");
   packet_count++;
   Serial.print("packet_count");
   Serial.print(",");
